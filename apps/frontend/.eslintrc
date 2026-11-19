@@ -1,0 +1,9 @@
+{
+  "extends": "eslint-config-umi",
+  "rules": {
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "no-unused-vars": "warn",
+    "react/display-name": "off"
+  }
+}

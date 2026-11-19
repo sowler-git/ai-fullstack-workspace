@@ -1,0 +1,41 @@
+name: AI engineering contract
+
+on:
+  pull_request:
+    paths:
+      - 'specs/**'
+      - 'tasks/**'
+      - '.ai-engineering/**'
+      - 'agents/**'
+      - '.github/workflows/ai-engineering-contract.yml'
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-control-plane:
+    runs-on: ubuntu-latest
+    steps:
+      # Official GitHub action; confirm final pinning policy before enabling production CI.
+      - uses: actions/checkout@v6
+      - name: Validate required workspace contracts
+        shell: pwsh
+        run: |
+          $requiredPaths = @(
+            'AGENTS.md', 'specs/templates/change-request.md',
+            'tasks/templates/task-dag.md',
+            '.ai-engineering/events/pending/event.template.json',
+            '.ai-engineering/archive/README.md'
+          )
+          $missing = $requiredPaths | Where-Object { -not (Test-Path -LiteralPath $_) }
+          if ($missing) { throw "Missing required control-plane paths: $($missing -join ', ')" }
+          $requiredEventFields = @('eventId','entityType','entityId','eventType','occurredAt','attempt')
+          Get-ChildItem '.ai-engineering/events/pending' -Filter '*.json' | Where-Object { $_.Name -ne 'event.template.json' } | ForEach-Object {
+            $event = Get-Content $_.FullName -Raw | ConvertFrom-Json
+            $missingFields = $requiredEventFields | Where-Object { -not $event.PSObject.Properties.Name.Contains($_) -or [string]::IsNullOrWhiteSpace([string]$event.$_) }
+            if ($missingFields) { throw "$($_.Name) lacks: $($missingFields -join ', ')" }
+            if ($event.attempt -lt 0) { throw "$($_.Name) has a negative attempt" }
+          }

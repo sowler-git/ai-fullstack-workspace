@@ -1,0 +1,10 @@
+# AI engineering runtime artefacts
+.ai-engineering/events/processed/*
+.ai-engineering/state/*.local.json
+.ai-engineering/index/*.local.json
+!.ai-engineering/events/processed/README.md
+
+# Build outputs
+apps/backend/**/target/
+apps/frontend/**/node_modules/
+apps/frontend/**/dist/

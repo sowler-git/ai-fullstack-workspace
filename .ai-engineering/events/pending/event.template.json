@@ -1,0 +1,12 @@
+{
+  "eventId": "evt-<uuid>",
+  "entityType": "change",
+  "entityId": "CHG-YYYYMMDD-001",
+  "eventType": "completed",
+  "occurredAt": "2026-11-19T00:00:00Z",
+  "attempt": 0,
+  "evidence": [
+    "specs/changes/YYYY-MM-DD-slug/",
+    "tasks/dag/CHG-YYYYMMDD-001.md"
+  ]
+}
