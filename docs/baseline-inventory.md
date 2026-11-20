@@ -2,8 +2,12 @@
 
 | Workspace path | Imported source | Build root | Current stack |
 | --- | --- | --- | --- |
-| `apps/frontend` | `../sowler-blogs-front` | `apps/frontend/package.json` | UmiJS 2, React 16, DVA, Ant Design 3 |
+| `apps/frontend/admin` | `../sowler-blogs-front` | `apps/frontend/admin/package.json` | UmiJS 2, React 16, DVA, Ant Design 3 |
 | `apps/backend` | `../spring-cloud-base` | `apps/backend/pom.xml` | Java 8, Spring Boot 2.3.2, Spring Cloud Hoxton.SR9, Spring Cloud Alibaba 2.2.6 |
+
+## Frontend multi-platform layout
+
+`apps/frontend/` is a container. `admin/` holds the imported runnable baseline; `web/`, `h5/`, `shells/` and `shared/` are placeholders for future platforms. See `apps/frontend/README.md` for responsibilities and the rule that no empty scaffold code is generated before a change is approved.
 
 ## Backend Maven modules
 

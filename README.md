@@ -4,7 +4,7 @@ An independent, specification-driven monorepo workspace for a Spring Cloud backe
 
 ## Imported baselines
 
-- `apps/frontend/` is a preserved copy of `sowler-blogs-front` (UmiJS 2, React 16, DVA, Ant Design 3). Its original instructions are retained as `apps/frontend/SOURCE-README.md`.
+- `apps/frontend/admin/` is a preserved copy of `sowler-blogs-front` (UmiJS 2, React 16, DVA, Ant Design 3). Its original instructions are retained as `apps/frontend/admin/SOURCE-README.md`. `apps/frontend/` also holds placeholder directories for future web, H5, shell and shared assets — see `apps/frontend/README.md`.
 - `apps/backend/` is a preserved copy of `spring-cloud-base` (Maven multi-module Spring Cloud Alibaba). Its original instructions are retained as `apps/backend/SOURCE-README.md`.
 
 The source directories remain untouched. Treat these copies as the workspace implementation baseline for all future approved changes.

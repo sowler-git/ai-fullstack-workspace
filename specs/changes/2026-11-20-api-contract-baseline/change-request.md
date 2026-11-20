@@ -7,7 +7,7 @@
 
 ## Outcome and scope
 
-建立一份中文的前后端对接契约基线文档，如实记录 `apps/frontend` 与 `apps/backend` 当前 HTTP 对接面的真相：传输层、认证、统一响应结构、端点对照、数据形状、冲突项与待办。
+建立一份中文的前后端对接契约基线文档，如实记录 `apps/frontend/admin` 与 `apps/backend` 当前 HTTP 对接面的真相：传输层、认证、统一响应结构、端点对照、数据形状、冲突项与待办。
 
 - In scope: 新建 `docs/frontend-backend-contract.md`；新建与本变更关联的 spec/task 记录。
 - Out of scope: **不修改任何前端或后端源码**；不实施 §3.3 / §4.3 的裁决；不写业务接口实现；不动导入基线。

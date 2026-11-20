@@ -2,7 +2,7 @@
 
 - 文档状态：`draft`（待 sowler 评审）
 - 适用版本：前端 `blog-admin` 基线 / 后端 `spring-cloud-base` 基线（见 `docs/baseline-inventory.md`）
-- 覆盖范围：`apps/frontend` ⇄ `apps/backend` 的 HTTP 对接面（传输、认证、响应、端点、数据形状）
+- 覆盖范围：`apps/frontend/admin` ⇄ `apps/backend` 的 HTTP 对接面（传输、认证、响应、端点、数据形状）。新增端（web/h5/shells）的契约另行扩展本文件。
 - 关联变更：`specs/changes/2026-11-20-api-contract-baseline/`
 
 > **阅读约定**：本文只描述仓库里实际存在的行为，不虚构已实现能力。
@@ -15,7 +15,7 @@
 
 前端与后端是两份**独立导入、各自可运行的基线**（见 README）。当前状态是：
 
-- 前端所有数据来自 `apps/frontend/mock/`，请求打到本地 mock，**没有真正调用后端**；
+- 前端所有数据来自 `apps/frontend/admin/mock/`，请求打到本地 mock，**没有真正调用后端**；
 - 后端暴露的是一套 Spring Cloud 微服务接口，**与前端 service 层定义几乎不对齐**；
 - `README` 要求"API 调用必须指向版本化契约或批准的 delta 规格"，但 `specs/changes/`、`tests/contract/` 目前为空。
 
@@ -231,9 +231,9 @@
 
 | 结论 | 源文件 |
 | --- | --- |
-| 前端端点清单 | `apps/frontend/src/pages/*/service.js`、`apps/frontend/src/services/index.js` |
-| 前端响应消费 | `apps/frontend/src/helpers/request.js`、`src/pages/*/model.js`、`src/pages/o/login/index.js` |
-| 前端认证存储 | `apps/frontend/src/helpers/auth.js` |
+| 前端端点清单 | `apps/frontend/admin/src/pages/*/service.js`、`apps/frontend/admin/src/services/index.js` |
+| 前端响应消费 | `apps/frontend/admin/src/helpers/request.js`、`src/pages/*/model.js`、`src/pages/o/login/index.js` |
+| 前端认证存储 | `apps/frontend/admin/src/helpers/auth.js` |
 | 后端响应结构 | `apps/backend/common-module/.../entity/base/Response.java` |
 | 后端错误码 | `apps/backend/common-module/.../enums/ErrorEnum.java` |
 | 后端登录认证 | `apps/backend/user-module/.../controller/AccountController.java`、`common-module/.../utils/JwtUtils.java` |
