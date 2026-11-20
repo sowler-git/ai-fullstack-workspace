@@ -85,7 +85,7 @@ public class DubboUserServiceImpl implements IDubboUserService {
         user.setEmail("dubbo@gemail.com");
         Response insert = userExternalService.insert(user);
         System.out.println(insert);
-        return response.getModel();
+        return response.getData();
     }
 
 

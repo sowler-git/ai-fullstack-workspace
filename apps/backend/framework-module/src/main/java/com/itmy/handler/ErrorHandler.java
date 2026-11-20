@@ -24,7 +24,7 @@ public class ErrorHandler {
 
     @ExceptionHandler(ModelException.class)
     public Response handleParamException(ModelException ex) {
-        return Response.builder().code(ex.getCode()).msg(ex.getMsg()).model(ex.getModel()).build();
+        return Response.builder().code(ex.getCode()).msg(ex.getMsg()).data(ex.getModel()).build();
     }
 
     @ExceptionHandler(ParseException.class)

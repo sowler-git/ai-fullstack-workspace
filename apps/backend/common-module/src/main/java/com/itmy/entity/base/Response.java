@@ -32,7 +32,7 @@ public class Response<T> implements Serializable {
     /**
      * 接口数据
      */
-    private T model;
+    private T data;
 
     /**
      * 成功请求
@@ -53,7 +53,7 @@ public class Response<T> implements Serializable {
         Response<T> response = new Response<>();
         response.setCode(ErrorEnum.OK.getCode());
         response.setMsg(ErrorEnum.OK.getMsg());
-        response.setModel(data);
+        response.setData(data);
         return response;
     }
 
@@ -75,7 +75,7 @@ public class Response<T> implements Serializable {
         Response<T> response = new Response<>();
         response.setCode(ErrorEnum.ERROR.getCode());
         response.setMsg(ErrorEnum.ERROR.getMsg());
-        response.setModel(data);
+        response.setData(data);
         return response;
     }
 
